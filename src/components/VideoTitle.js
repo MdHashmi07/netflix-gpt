@@ -8,7 +8,7 @@ const VideoTitle = ({title, overview}) => {
       <p className='w-1/4 py-4 font-medium'>{overview}</p>
 
       <div className='my-4 flex gap-5'>
-        <button className='text-lg bg-white text-black py-3 px-14 font-bold rounded-md flex gap-2 items-center'><img src={playButton} alt="playButton" className='w-4' />Play</button>
+        <button className='text-lg bg-white text-black py-3 px-14 font-bold rounded-md flex gap-2 items-center hover:opacity-80'><img src={playButton} alt="playButton" className='w-4' />Play</button>
         <button className='text-lg bg-sky-100 py-3 px-12 font-bold rounded-md bg-opacity-55'>More Info</button>
       </div>
     </div>
