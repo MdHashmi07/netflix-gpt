@@ -5,7 +5,7 @@ import {createUserWithEmailAndPassword,signInWithEmailAndPassword, updateProfile
 import { auth } from "../utils/firebase.js";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice.js";
-import { BACKGROUND_IMG, USER_AVATAR } from "../utils/constants.js";
+import { BACKGROUND_URL, USER_AVATAR } from "../utils/constants.js";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -70,15 +70,16 @@ const Login = () => {
       <Header />
       <div className="absolute">
         <img
-          src={BACKGROUND_IMG}
+          src={BACKGROUND_URL}
           alt="backgorund-image"
+          className="h-screen object-cover"
         />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="absolute bg-black w-3/12 p-8 mx-auto left-0 right-0 my-24 bg-opacity-75 rounded-md"
+        className="absolute bg-black md:w-3/12 p-8 mx-2 md:mx-auto left-0 right-0 my-24 bg-opacity-75 rounded-md"
       >
-        <h1 className="text-white text-4xl font-bold py-6">
+        <h1 className="text-white text-2xl md:text-4xl font-bold py-3 md:py-6">
           {isSignInForm ? "Sign In" : "Sign Up"}
         </h1>
         {!isSignInForm && (
@@ -86,29 +87,29 @@ const Login = () => {
             ref={fullName}
             type="text"
             placeholder="Full Name"
-            className="p-4 my-2 w-full bg-black bg-opacity-60 border border-gray-400 text-white rounded-md"
+            className="p-2 md:p-4 my-2 text-sm md:text-lg w-full bg-black bg-opacity-60 border border-gray-400 text-white rounded-md"
           />
         )}
         <input
           ref={email}
           type="text"
           placeholder="Email or mobile Number"
-          className="p-4 my-2 w-full bg-black bg-opacity-60 border border-gray-400 text-white rounded-md"
+          className="p-2 md:p-4 my-2 text-sm md:text-lg w-full bg-black bg-opacity-60 border border-gray-400 text-white rounded-md"
         />
         <input
           ref={password}
           type="text"
           placeholder="Password"
-          className="p-4 my-2 w-full bg-black bg-opacity-60 border border-gray-400 text-white rounded-md"
+          className="p-2 md:p-4 my-2 text-sm md:text-lg w-full bg-black bg-opacity-60 border border-gray-400 text-white rounded-md"
         />
-        <p className="text-red-600 text-xl">{showErrorMessage}</p>
+        <p className="text-red-600 text-lg md:text-xl">{showErrorMessage}</p>
         <button
-          className="w-full p-2 my-2 bg-red-600 text-white rounded-md"
+          className="w-full p-2 my-2 text-sm md:text-sm bg-red-600 text-white rounded-md"
           onClick={handleFormData}
         >
           Submit
         </button>
-        <p className="text-gray-200 py-4">
+        <p className="text-gray-200 py-4 text-sm md:text-lg">
           {isSignInForm ? "New to Netflix? " : "Already registered? "}
           <span
             className="text-white font-bold cursor-pointer"
